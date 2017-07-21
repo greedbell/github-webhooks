@@ -6,7 +6,7 @@ const serve = require('koa-static');
 const path = require('path');
 const Debug = require('debug');
 
-const {push, issue} = require('./events');
+const {push, other} = require('./events');
 
 const pkg = require('./package.json');
 const config = require('./config.json');
@@ -42,7 +42,7 @@ app.use(koaBunyanLogger.requestLogger({
 
 // app.use(cors());
 
-app.use(ctx => {
+app.use(async ctx => {
   const requestPath = ctx.request.path;
   const requestQuery = ctx.request.query;
   debug(requestPath);
@@ -50,19 +50,19 @@ app.use(ctx => {
   let payload = typeof requestQuery === 'object' ? requestQuery.payload : null;
   payload = payload && JSON.parse(payload);
   debug(payload);
-  let result = 'failed';
+  let result;
   for (let webhook of config) {
     debug(webhook);
     if (webhook.path === requestPath && webhook.secret === requestQuery.secret) {
       if (webhook.event === 'push') {
-        result = push(webhook.script, payload);
-      } else if (webhook.event === 'issues') {
-        result = issue(webhook.script, payload);
+        result = await push(webhook.script, payload);
+      } else {
+        result = await other(webhook.script, payload);
       }
       break;
     }
   }
-  ctx.body = result;
+  ctx.body = result || 'failed';
 });
 
 let port = process.env.PORT || 4200;

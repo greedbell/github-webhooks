@@ -60,8 +60,9 @@ typings/
 # WebStorm
 .idea
 
-# Project
+# for security
 config.json
+scripts
 
 # Mac OS
 .DS_Store

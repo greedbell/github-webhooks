@@ -18,12 +18,32 @@ npm install --production
 
 ### Config
 
-reference [GitHub Webhooks](https://developer.github.com/webhooks/)
+copy `config.example.json` to `config.json`, and edit your `config.json` like
 
-copy `config.example.json` to `config.json`
-write your `config.json`
+```
+[
+  {
+    "path": "/callback/example/push-github-webhooks-master",
+    "secret": "webhook-secret",
+    "event": "push",
+    "script": "scripts-example/push.sh"
+  },
+  {
+    "path": "/callback/example/issues-github-webhooks",
+    "secret": "webhook-secret",
+    "event": "issues",
+    "script": "scripts-example/issues.sh"
+  }
+]
+```
 
-#### title
+#### path
+
+path for the webhook
+
+#### secret
+
+secret for request
 
 #### event
 
@@ -31,6 +51,10 @@ reference [Event Types & Payloads](https://developer.github.com/v3/activity/even
 
 * [issues](https://developer.github.com/v3/activity/events/types/#issuesevent)
 * [push](https://developer.github.com/v3/activity/events/types/#pushevent)
+
+#### script
+
+script file path to run
 
 ### Run
 

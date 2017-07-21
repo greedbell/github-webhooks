@@ -1,16 +1,14 @@
 [
   {
-    "title": "Push Master Example",
-    "path": "/callback/example/push-master",
+    "path": "/callback/example/push-github-webhooks-master",
     "secret": "webhook-secret",
     "event": "push",
-    "script": "scripts/example-push-master.sh"
+    "script": "scripts-example/push.sh"
   },
   {
-    "title": "Issues Example",
-    "path": "/callback/example/issues",
+    "path": "/callback/example/issues-github-webhooks",
     "secret": "webhook-secret",
     "event": "issues",
-    "script": "scripts/example-issues.sh"
+    "script": "scripts-example/issues.sh"
   }
 ]
