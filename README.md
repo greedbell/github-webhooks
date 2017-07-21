@@ -4,14 +4,19 @@ Node.js service for processing GitHub Webhooks
 
 ## Usage
 
-### install
+### Dependencies
+
+* node >= 8.0
+* npm >= 5.0
+
+### Install
 
 ```sh
 git clone https://github.com/greedbell/github-webhooks.git
 npm install --production
 ```
 
-### config
+### Config
 
 reference [GitHub Webhooks](https://developer.github.com/webhooks/)
 
@@ -27,7 +32,7 @@ reference [Event Types & Payloads](https://developer.github.com/v3/activity/even
 * [issues](https://developer.github.com/v3/activity/events/types/#issuesevent)
 * [push](https://developer.github.com/v3/activity/events/types/#pushevent)
 
-### start
+### Run
 
 ```sh
 npm start
