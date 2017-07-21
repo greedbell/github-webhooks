@@ -11,7 +11,9 @@ exports.push = (script, options) => {
   debug('script: ', script);
   debug('options: ', options);
   let args = [];
-  options.ref && args.push(options.ref);
+  if (typeof options === 'object') {
+    options.ref && args.push(options.ref);
+  }
 
   childProcess.execFile(script, args, (err, stdout, stderr) => {
     debug('err: ', err);
