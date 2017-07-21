@@ -70,6 +70,12 @@ in production
 npm run release
 ```
 
+test
+
+```
+http://localhost:4201/callback/example/push-github-webhooks-master?secret=webhook-secret&ref=ref&payload={"ref":"refs/heads/master"}
+```
+
 ### Add webhook in GitHub
 
 ```

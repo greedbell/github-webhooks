@@ -63,6 +63,7 @@ typings/
 # for security
 config.json
 scripts
+sync-config.sh
 
 # Mac OS
 .DS_Store

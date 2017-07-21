@@ -6,7 +6,7 @@ const {promisify} = require('util');
 const pkg = require('./package.json');
 
 const debug = new Debug(pkg.name);
-const execFileAsync = promisify(childProcess.execFile);
+const execFile = promisify(childProcess.execFile);
 
 exports.push = async (script, options) => {
   script = path.join(__dirname, script);
@@ -28,7 +28,7 @@ exports.push = async (script, options) => {
     }
   }
 
-  let result = await execFileAsync(script, args);
+  let result = await execFile(script, args);
   return result && result.stdout;
 };
 
@@ -37,6 +37,6 @@ exports.other = async (script, options) => {
   debug('script: ', script);
   debug('options: ', options);
 
-  let result = await execFileAsync(script);
+  let result = await execFile(script);
   return result && result.stdout;
 };
