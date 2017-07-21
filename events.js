@@ -17,6 +17,7 @@ exports.push = (script, options) => {
     debug('err: ', err);
     debug('stdout: ', stdout);
     debug('stderr: ', stderr);
+    return stdout || stderr || err;
   });
 };
 

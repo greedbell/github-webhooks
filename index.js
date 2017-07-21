@@ -47,19 +47,22 @@ app.use(ctx => {
   const requestQuery = ctx.request.query;
   debug(requestPath);
   debug(requestQuery);
-  console.log(requestQuery);
+  let payload = typeof requestQuery === 'object' ? requestQuery.payload : null;
+  payload = payload && JSON.parse(payload);
+  debug(payload);
+  let result = 'failed';
   for (let webhook of config) {
     debug(webhook);
     if (webhook.path === requestPath && webhook.secret === requestQuery.secret) {
       if (webhook.event === 'push') {
-        push(webhook.script, requestQuery);
+        result = push(webhook.script, payload);
       } else if (webhook.event === 'issues') {
-        issue(webhook.script, requestQuery);
+        result = issue(webhook.script, payload);
       }
       break;
     }
   }
-  ctx.body = 'Hello World';
+  ctx.body = result;
 });
 
 let port = process.env.PORT || 4200;
