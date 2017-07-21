@@ -57,3 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
+# WebStorm
+.idea
+
+# Project
+config.json
+
+# Mac OS
+.DS_Store

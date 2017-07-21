@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Push Master Example",
+    "path": "/callback/example/push-master",
+    "secret": "webhook-secret",
+    "event": "push",
+    "script": "scripts/example-push-master.sh"
+  },
+  {
+    "title": "Issues Example",
+    "path": "/callback/example/issues",
+    "secret": "webhook-secret",
+    "event": "issues",
+    "script": "scripts/example-issues.sh"
+  }
+]
