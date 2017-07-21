@@ -32,7 +32,7 @@ copy `config.example.json` to `config.json`, and edit your `config.json` like
     "path": "/callback/example/issues-github-webhooks",
     "secret": "webhook-secret",
     "event": "issues",
-    "script": "scripts-example/issues.sh"
+    "script": "scripts-example/other.sh"
   }
 ]
 ```
