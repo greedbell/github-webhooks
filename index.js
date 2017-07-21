@@ -47,6 +47,7 @@ app.use(ctx => {
   const requestQuery = ctx.request.query;
   debug(requestPath);
   debug(requestQuery);
+  console.log(requestQuery);
   for (let webhook of config) {
     debug(webhook);
     if (webhook.path === requestPath && webhook.secret === requestQuery.secret) {

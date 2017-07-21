@@ -34,6 +34,27 @@ reference [Event Types & Payloads](https://developer.github.com/v3/activity/even
 
 ### Run
 
+in development
+
 ```sh
-npm start
+npm run develop
 ```
+
+in production
+
+```sh
+npm run release
+```
+
+### Add webhook in GitHub
+
+```
+Settings > Webhooks > Add webhook
+```
+
+* `Payload URL`: <domain>/<path in config.json>
+* `Content type`: `application/x-www-form-urlencoded`
+* `Secret` <secret in config.json>
+* select events
+
+Add webhook
